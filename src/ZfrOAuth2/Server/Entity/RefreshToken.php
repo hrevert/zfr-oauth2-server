@@ -24,13 +24,6 @@ namespace ZfrOAuth2\Server\Entity;
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class RefreshToken extends AbstractToken
+class RefreshToken extends \ZfrOAuth2\Server\Model\RefreshToken
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function isExpired()
-    {
-        return parent::isExpired() && $this->expiresAt !== null;
-    }
 }

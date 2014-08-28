@@ -16,22 +16,23 @@
  * and is licensed under the MIT license.
  */
 
-namespace ZfrOAuth2\Server\Entity;
+namespace ZfrOAuth2\Server\Model;
 
 /**
- * Client entity
+ * Interface for token owner
  *
- * A client is typically an application (either a third-party or your own application) that integrates with the
- * provider (in this case, you are the provider)
- *
- * There are two types of clients: the public and confidential ones. Some grants absolutely require a client,
- * while other don't need it. The reason is that for public clients (like a JavaScript application), the secret
- * cannot be kept... well... secret! To create a public client, you just need to let an empty secret. More
- * info about that: http://tools.ietf.org/html/rfc6749#section-2.1
+ * A token owner is someone (most likely a user) that contains the actual data. It's the entity that holds
+ * the data that the client is asking permission to see
  *
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class Client extends \ZfrOAuth2\Server\Model\Client
+interface TokenOwnerInterface
 {
+    /**
+     * Get the id of the token owner
+     *
+     * @return mixed
+     */
+    public function getTokenOwnerId();
 }

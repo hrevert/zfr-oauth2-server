@@ -27,29 +27,6 @@ namespace ZfrOAuth2\Server\Entity;
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class AuthorizationCode extends AbstractToken
+class AuthorizationCode extends \ZfrOAuth2\Server\Model\AuthorizationCode
 {
-    /**
-     * @var string
-     */
-    protected $redirectUri;
-
-    /**
-     * Set the redirect URI
-     *
-     * @param  string $redirectUri
-     * @return void
-     */
-    public function setRedirectUri($redirectUri)
-    {
-        $this->redirectUri = (string) $redirectUri;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRedirectUri()
-    {
-        return $this->redirectUri;
-    }
 }

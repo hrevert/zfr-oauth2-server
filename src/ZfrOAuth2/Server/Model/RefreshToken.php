@@ -16,22 +16,21 @@
  * and is licensed under the MIT license.
  */
 
-namespace ZfrOAuth2\Server\Entity;
+namespace ZfrOAuth2\Server\Model;
 
 /**
- * Client entity
- *
- * A client is typically an application (either a third-party or your own application) that integrates with the
- * provider (in this case, you are the provider)
- *
- * There are two types of clients: the public and confidential ones. Some grants absolutely require a client,
- * while other don't need it. The reason is that for public clients (like a JavaScript application), the secret
- * cannot be kept... well... secret! To create a public client, you just need to let an empty secret. More
- * info about that: http://tools.ietf.org/html/rfc6749#section-2.1
+ * Refresh token entity
  *
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class Client extends \ZfrOAuth2\Server\Model\Client
+class RefreshToken extends AbstractToken
 {
+    /**
+     * {@inheritDoc}
+     */
+    public function isExpired()
+    {
+        return parent::isExpired() && $this->expiresAt !== null;
+    }
 }

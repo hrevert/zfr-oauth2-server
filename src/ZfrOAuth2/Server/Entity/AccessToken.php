@@ -24,13 +24,6 @@ namespace ZfrOAuth2\Server\Entity;
  * @author  Michaël Gallego <mic.gallego@gmail.com>
  * @licence MIT
  */
-class AccessToken extends AbstractToken
+class AccessToken extends \ZfrOAuth2\Server\Model\AccessToken
 {
-    /**
-     * {@inheritDoc}
-     */
-    public function isExpired()
-    {
-        return parent::isExpired() && $this->expiresAt !== null;
-    }
 }
